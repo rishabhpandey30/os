@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Verify Access{% endblock %}
+{% block content %}
+<h2>Verify Access</h2>
+<p>Enter your email to receive an OTP for file access.</p>
+
+<!-- Form to request OTP (only for file access, NOT for registration) -->
+{% if token %}
+<form action="{{ url_for('send_otp', token=token) }}" method="POST">
+    <input type="email" name="email" class="form-control mb-3" placeholder="Enter your email" required>
+    <button type="submit" class="btn btn-custom">Send OTP</button>
+</form>
+{% endif %}
+
+<!-- Form to enter OTP and verify -->
+<form method="POST">
+    <input type="email" name="email" class="form-control mb-3" placeholder="Enter your email again" required>
+    <input type="text" name="otp" class="form-control mb-3" placeholder="Enter OTP" required>
+    <button type="submit" class="btn btn-custom">Verify & Download</button>
+</form>
+{% endblock %}

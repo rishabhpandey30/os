@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home - Secure File Management{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to Secure File Management</h1>
+    <p>Securely upload and manage your files.</p>
+        <img src="{{ url_for('static', filename='image.png') }}" alt="Img">
+        <div class="log-reg-btn"> 
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Register</a>
+            <a href="{{ url_for('login') }}" class="btn btn-success">Login</a>
+        </div>
+</div>
+{% endblock %}
